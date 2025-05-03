@@ -174,7 +174,3 @@ Latency from sensor to app display: ~3 seconds.
 - Aleksandr Moskalev
 - Harikant Sharma
 
-Project submitted for IEIT3516 – IoT Systems 2  
-Professor: Weijing Ma  
-Faculty: Applied Science and Technology  
-Institution: Humber College, 2025
