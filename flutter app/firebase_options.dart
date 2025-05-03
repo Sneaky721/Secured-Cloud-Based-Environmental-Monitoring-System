@@ -41,52 +41,52 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyArLB0Wn89A8qutm6GQRzlp9FAvVuEw3EU',
+    apiKey: 'Api_key',
     appId: '1:910018982029:web:1a74b816c726394726f2c4',
     messagingSenderId: '910018982029',
     projectId: 'realtime-a5389',
     authDomain: 'realtime-a5389.firebaseapp.com',
-    databaseURL: 'https://realtime-a5389-default-rtdb.firebaseio.com',
+    databaseURL: 'DATABASE_URL',
     storageBucket: 'realtime-a5389.firebasestorage.app',
     measurementId: 'G-69CDF9XMJK',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCjPt3-X0XNCoLiko87Yq7PmIKHNGWXdwo',
+    apiKey: 'Api_key',
     appId: '1:910018982029:android:a1549b40e7fa3af226f2c4',
     messagingSenderId: '910018982029',
     projectId: 'realtime-a5389',
-    databaseURL: 'https://realtime-a5389-default-rtdb.firebaseio.com',
+    databaseURL: 'DATABASE_URL',
     storageBucket: 'realtime-a5389.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC_kw1QFYG_kWbK1_coiQFo18XMqgTrKj0',
+    apiKey: 'Api_key',
     appId: '1:910018982029:ios:551bead217a58a3026f2c4',
     messagingSenderId: '910018982029',
     projectId: 'realtime-a5389',
-    databaseURL: 'https://realtime-a5389-default-rtdb.firebaseio.com',
+    databaseURL: 'DATABASE_URL',
     storageBucket: 'realtime-a5389.firebasestorage.app',
     iosBundleId: 'com.example.realtime',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC_kw1QFYG_kWbK1_coiQFo18XMqgTrKj0',
+    apiKey: 'Api_key',
     appId: '1:910018982029:ios:551bead217a58a3026f2c4',
     messagingSenderId: '910018982029',
     projectId: 'realtime-a5389',
-    databaseURL: 'https://realtime-a5389-default-rtdb.firebaseio.com',
+    databaseURL: 'DATABASE_URL',
     storageBucket: 'realtime-a5389.firebasestorage.app',
     iosBundleId: 'com.example.realtime',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyArLB0Wn89A8qutm6GQRzlp9FAvVuEw3EU',
+    apiKey: 'Api_key',
     appId: '1:910018982029:web:3cadfe8f44a9ab8926f2c4',
     messagingSenderId: '910018982029',
     projectId: 'realtime-a5389',
     authDomain: 'realtime-a5389.firebaseapp.com',
-    databaseURL: 'https://realtime-a5389-default-rtdb.firebaseio.com',
+    databaseURL: 'DATABASE_URL',
     storageBucket: 'realtime-a5389.firebasestorage.app',
     measurementId: 'G-MKZRTNYJPG',
   );
