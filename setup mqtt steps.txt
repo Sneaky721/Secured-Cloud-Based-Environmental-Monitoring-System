@@ -1,0 +1,108 @@
+To set up a **secure MQTT broker** on a **Raspberry Pi** that:
+
+- **Does not allow anonymous access**  
+- **Uses TLS encryption (secure port 8883)**  
+
+Follow these steps using **Mosquitto**, the most commonly used MQTT broker.
+
+---
+
+### Step 1: Install Mosquitto
+
+```bash
+sudo apt update
+sudo apt install -y mosquitto mosquitto-clients
+```
+
+Enable Mosquitto to start on boot:
+
+```bash
+sudo systemctl enable mosquitto
+```
+
+---
+
+### Step 2: Create SSL Certificates (Self-Signed or CA)
+
+#### Option A: Generate Self-Signed Cert
+
+```bash
+sudo mkdir -p /etc/mosquitto/certs
+cd /etc/mosquitto/certs
+
+# Generate the key and cert
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+-keyout mosquitto.key -out mosquitto.crt \
+-subj "/CN=raspberrypi"
+```
+
+---
+
+### Step 3: Create a Password File
+
+```bash
+sudo mosquitto_passwd -c /etc/mosquitto/passwd your_username
+```
+
+It will prompt for a password. Use strong one.
+
+---
+
+### Step 4: Configure Mosquitto for Secure Auth and TLS
+
+Create a new config file:
+
+```bash
+sudo nano /etc/mosquitto/conf.d/secure.conf
+```
+
+Paste this:
+
+```ini
+listener 8883
+cafile /etc/mosquitto/certs/mosquitto.crt
+certfile /etc/mosquitto/certs/mosquitto.crt
+keyfile /etc/mosquitto/certs/mosquitto.key
+
+require_certificate false
+use_identity_as_username false
+
+# Security
+allow_anonymous false
+password_file /etc/mosquitto/passwd
+
+# Logging
+log_dest file /var/log/mosquitto/mosquitto.log
+```
+
+---
+
+### Step 5: Restart Mosquitto
+
+```bash
+sudo systemctl restart mosquitto
+```
+
+---
+
+###  Step 6: Test Secure Connection
+
+```bash
+mosquitto_pub -h <your_pi_ip> -p 8883 \
+--cafile /etc/mosquitto/certs/mosquitto.crt \
+-u your_username -P your_password \
+-t "secure/test" -m "hello"
+```
+
+> Note: Run this from the same Pi or another device that has the `mosquitto-clients` package installed.
+
+---
+
+###  Optional: Open Port in Firewall
+
+If using `ufw`:
+
+```bash
+sudo ufw allow 8883/tcp
+```
+
